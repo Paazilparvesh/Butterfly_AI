@@ -207,9 +207,50 @@ export default function MorphParticles() {
             markers: true,
           },
         })
-        .to(butterfly.position, { x: 0, duration: 0.1 })
-        .to(butterfly.position, { y: 5, duration: 0.1 })
-        .to(butterfly.position, { x: 0, y: 2, duration: 1 });
+        .to(butterfly.position, { x: -8, duration: 0.1 });
+
+      // --- SECTION FIVE ---
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".section-five",
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            markers: true,
+          },
+        })
+        .to(butterfly.position, { x: -14, duration: 2 })
+        .to(butterfly.position, { x: -14, duration: 2 })
+        .to(butterfly.position, { x: -8, duration: 2 });
+
+      // --- SECTION SIX ---
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".section-six",
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            markers: true,
+          },
+        })
+        .to(butterfly.position, { x: 14, duration: 2 })
+        .to(butterfly.position, { x: 12, duration: 2 });
+
+      // --- SECTION SEVEN ---
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".section-seven",
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            markers: true,
+          },
+        })
+        .to(butterfly.position, { x: 0, duration: 2 })
+        .to(butterfly.position, { x: 0, duration: 2 });
     });
 
     // loader.load("/models/animated_butterfly/scene.gltf", (gltf) => {
