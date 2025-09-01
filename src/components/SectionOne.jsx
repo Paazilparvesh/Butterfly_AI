@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/dist/SplitText";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import flower from "/src/assets/AdobeStock_528659502_Preview.png"
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -15,7 +14,7 @@ const CraftBeautiful = () => {
   const button1Ref = useRef(null);
   const button2Ref = useRef(null);
   const [isButton1Hovered, setIsButton1Hovered] = useState(false);
-  const [isButton2Hovered, setIsButton2Hovered] = useState(false);
+  const [ setIsButton2Hovered] = useState(false);
 
   // Ripple effect for buttons
   const createRipple = (event) => {
@@ -198,8 +197,9 @@ const CraftBeautiful = () => {
           {/* Header */}
           <h1
             // ref={headingRef}
-            className="text-20xl md:text-9xl lg:text-8xl 2xl:text-8xl text-start font-extrabold tracking-tight text-white leading-tight mb-8 font-diphylleia"
-          >Where Power{" "}<br/>
+            className="text-20xl md:text-9xl lg:text-8xl 2xl:text-8xl text-start font-medium tracking-tight text-white leading-tight mb-8 font-diphylleia"
+          >
+            Where Power <br />
             <span className="">Meets Lightness</span>
           </h1>
 
@@ -253,8 +253,6 @@ const CraftBeautiful = () => {
           </div>
           {/* <img src={flower} alt="" className="absolute top-0 -right-100" />   */}
         </div>
-
-            
 
         {/* Floating elements for visual interest */}
       </section>

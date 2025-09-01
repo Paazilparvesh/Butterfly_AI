@@ -7,15 +7,9 @@ export default function Header() {
       <header className=" flex justify-between items-center px-6 py-4 rounded-2xl">
         {/* Left Section */}
         <div className="flex items-center gap-6 px-2 py-1 rounded-full">
-          <Link to="/technology" className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xs">O</span>
+            <div className=" flex items-center justify-center">
+              <span className="text-black font-extrabold font-diphylleia text-xs xl:text-3xl">Butterfly.AI</span>
             </div>
-            <span className="text-gray-800 font-medium">Technology</span>
-          </Link>
-          <Link to="/pricing" className="text-gray-800 font-medium">
-            Pricing
-          </Link>
         </div>
 
         {/* Right Section */}
