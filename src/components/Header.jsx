@@ -1,11 +1,10 @@
-import React from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Menu } from "lucide-react";
 
 export default function Header() {
   return (
     <Router>
-      <header className=" flex justify-between items-center px-6 py-4 bg-gray-50 rounded-2xl">
+      <header className=" flex justify-between items-center px-6 py-4 rounded-2xl">
         {/* Left Section */}
         <div className="flex items-center gap-6 px-2 py-1 rounded-full">
           <Link to="/technology" className="flex items-center gap-2">

@@ -21,38 +21,32 @@ export default function SectionSeven() {
         },
       });
 
-      // Animations
       timeline
         .from(".section-seven-heading", {
           opacity: 0,
-          y: 80,
-          duration: 1.2,
+          y: 60,
+          duration: 1,
           ease: "power4.out",
         })
         .from(
           ".section-seven-subtext",
+          { opacity: 0, y: 40, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        )
+        .from(
+          ".section-seven-quote",
           { opacity: 0, y: 40, duration: 1, ease: "power3.out" },
-          "-=0.7"
-        )
-        .from(
-          ".gradient-text",
-          { opacity: 0, y: 20, duration: 1.5, ease: "power2.out" },
-          "-=0.5"
-        )
-        .from(
-          ".section-seven-blockquote",
-          { opacity: 0, y: 60, scale: 0.95, duration: 1.2, ease: "power3.out" },
           "-=0.5"
         )
         .from(
           ".section-seven-author",
-          { opacity: 0, y: 30, duration: 0.8, ease: "power3.out" },
-          "-=0.7"
+          { opacity: 0, y: 20, duration: 0.7, ease: "power2.out" },
+          "-=0.5"
         )
         .from(
           ".section-seven-btn",
-          { opacity: 0, y: 40, scale: 0.9, duration: 0.8, ease: "back.out(1.7)" },
-          "-=0.5"
+          { opacity: 0, scale: 0.9, duration: 0.7, ease: "back.out(1.7)" },
+          "-=0.4"
         );
     }, sectionRef);
 
@@ -60,37 +54,42 @@ export default function SectionSeven() {
   }, []);
 
   return (
-  <section
-  ref={sectionRef}
-  className="relative min-h-screen flex items-center justify-center font-mono overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black"
->
-  <div className="relative bg-gradient-to-r from-purple-100 to-blue-100 min-h-screen flex items-center justify-center p-6">
-  <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center glassmorphism p-10 rounded-3xl shadow-xl relative">
-    
-    {/* Left Side: Text */}
-    <div className="lg:w-1/2 mb-8 lg:mb-0">
-      <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500 mb-4">
-        What AI Leaders Say
-      </h2>
-      <p className="text-gray-700 mb-6">
-        Discover how AI solutions are transforming industries, enhancing productivity, 
-        and creating new opportunities through real-world success stories.
-      </p>
-      <blockquote className="text-lg italic text-green-700 mb-4">
-        "Integrating AI-powered systems has revolutionized our operations and helped us make smarter, data-driven decisions across all departments."
-      </blockquote>
-      <div className="text-blue-600 font-semibold">
-        Dr. Elena Martinez
-        <p className="text-gray-500 font-normal text-sm">Chief AI Officer at TechNova</p>
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center font-mono overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black px-4 sm:px-6 lg:px-8 py-12"
+    >
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        {/* Left Column */}
+        <div className="w-full lg:w-1/3 space-y-6 text-center lg:text-left">
+          <h2 className="section-seven-heading text-3xl sm:text-4xl lg:text-5xl 2xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
+            AI That Inspires
+          </h2>
+          <p className="section-seven-subtext text-gray-700 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
+            Explore how forward-thinking leaders are shaping the future with
+            AI-driven innovation. Real stories. Real impact.
+          </p>
+        </div>
+
+        {/* Middle Column - 3D Model Placeholder */}
+        <div className="w-full lg:w-1/3 flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]"></div>
+
+        {/* Right Column */}
+        <div className="w-full lg:w-1/3 space-y-6 text-center lg:text-right">
+          <blockquote className="section-seven-quote text-base sm:text-lg italic text-gray-800 dark:text-gray-200">
+            “AI is no longer just a tool — it’s a partner helping us reimagine
+            possibilities and unlock growth across industries.”
+          </blockquote>
+          <div className="section-seven-author text-blue-600 font-semibold dark:text-blue-400">
+            Dr. Elena Martinez
+            <p className="text-gray-500 dark:text-gray-400 font-normal text-xs sm:text-sm">
+              Chief AI Officer at TechNova
+            </p>
+          </div>
+          <button className="section-seven-btn mt-4 px-5 sm:px-6 py-2 bg-white/40 backdrop-blur-md rounded-full font-semibold hover:bg-white/60 transition text-sm sm:text-base">
+            Explore AI Stories
+          </button>
+        </div>
       </div>
-      <button className="mt-6 px-6 py-2 bg-white bg-opacity-40 backdrop-blur-md rounded-full font-semibold hover:bg-opacity-60 transition">
-        Explore AI Stories
-      </button>
-    </div>
-
-    </div>
-  </div>
-</section>
-
+    </section>
   );
 }

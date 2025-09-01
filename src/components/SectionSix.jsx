@@ -1,122 +1,106 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Eye, User, TrendingDown, Fingerprint } from "lucide-react";
+
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function TestimonialsSection() {
+export default function SectionSeven() {
   const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const cardRefs = useRef([]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     const ctx = gsap.context(() => {
-      const masterTl = gsap.timeline({
+      const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1,
+          toggleActions: "play none none none",
         },
       });
 
-      masterTl.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 80, rotationX: -45, scale: 0.9 },
-        { opacity: 1, y: 0, rotationX: 0, scale: 1, duration: 1.2, ease: "power4.out" },
-        0
-      );
-
-      cardRefs.current.forEach((card, index) => {
-        gsap.set(card, { opacity: 0, y: 50, rotationY: -15, scale: 0.9 });
-        masterTl.to(
-          card,
-          {
-            opacity: 1,
-            y: 0,
-            rotationY: 0,
-            scale: 1,
-            duration: 1,
-            ease: "back.out(1.7)",
-          },
-          0.2 + index * 0.15
+      timeline
+        .from(".section-seven-heading", {
+          opacity: 0,
+          y: 60,
+          duration: 1,
+          ease: "power4.out",
+        })
+        .from(
+          ".section-seven-subtext",
+          { opacity: 0, y: 40, duration: 0.8, ease: "power3.out" },
+          "-=0.6"
+        )
+        .from(
+          ".section-seven-feature",
+          { opacity: 0, y: 40, duration: 1, ease: "power3.out", stagger: 0.2 },
+          "-=0.5"
+        )
+        .from(
+          ".section-seven-btn",
+          { opacity: 0, scale: 0.9, duration: 0.7, ease: "back.out(1.7)" },
+          "-=0.4"
+        )
+        .from(
+          ".section-seven-stats",
+          { opacity: 0, y: 30, duration: 1, ease: "power3.out", stagger: 0.2 },
+          "-=0.3"
         );
-      });
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  const addToRefs = (el) => {
-    if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
-  };
-
-  const features = [
-    {
-      icon: <Eye className="w-8 h-8 text-white" />,
-      title: "AI-Driven 3D Modeling",
-      description: "Generate intricate 3D models effortlessly using intelligent AI algorithms.",
-    },
-    {
-      icon: <User className="w-8 h-8 text-white" />,
-      title: "Optimized GPU Rendering",
-      description: "High-performance GPU cloud management ensures fast and realistic rendering.",
-    },
-    {
-      icon: <TrendingDown className="w-8 h-8 text-white" />,
-      title: "Rapid Iteration & Training",
-      description: "Train AI models quickly and iterate designs with minimal manual effort.",
-    },
-    {
-      icon: <Fingerprint className="w-8 h-8 text-white" />,
-      title: "Intelligent Content Creation",
-      description: "AI-powered tools allow you to create, refine, and deploy 3D assets seamlessly.",
-    },
+  const stats = [
+    { number: "10x", label: "Faster Processing" },
+    { number: "70%", label: "Energy Savings" },
+    { number: "24/7", label: "Reliability" },
   ];
 
   return (
-  <section
-  ref={sectionRef}
-  className="min-h-screen flex items-center bg-gradient-to-br from-purple-50 via-white to-indigo-50 font-mono pl-20 pr-6 md:pr-12"
->
-  <div className="max-w-6xl w-full ml-0">
-    {/* Heading */}
-    <h2
-      ref={headingRef}
-      className="text-4xl md:text-6xl font-bold text-left text-gray-900 mb-12 leading-tight"
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center font-mono overflow-hidden px-6 lg:px-12 py-16"
     >
-      Transforming 3D Design{" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">
-        with AI
-      </span>
-    </h2>
-
-    {/* Features */}
-    <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-      {features.map((item, index) => (
-        <div
-          key={index}
-          ref={addToRefs}
-          className="flex items-start space-x-6 p-6 rounded-2xl bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-transparent hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
-        >
-          <div className="feature-icon bg-gradient-to-br from-purple-600 to-indigo-600 p-4 rounded-2xl flex items-center justify-center shadow-md">
-            {item.icon}
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        {/* Left Column: Content + Stats */}
+        <div className="w-full lg:w-1/2 space-y-10 text-left">
+          <div className="space-y-6">
+            <h2 className="section-seven-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
+              The Future of Chips
+            </h2>
+            <p className="section-seven-subtext text-gray-700 leading-relaxed text-base sm:text-lg max-w-xl">
+              Discover how next-generation AI chips are redefining speed,
+              efficiency, and performance, enabling breakthroughs across every
+              industry.
+            </p>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-            <p className="text-gray-600 mt-2">{item.description}</p>
+
+          <button className="section-seven-btn mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-full font-semibold hover:scale-105 transition-transform">
+            Learn More About Chips
+          </button>
+
+          {/* Stats Section */}
+          <div className="section-seven-stats grid grid-cols-3 gap-6 mt-10">
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className="text-center bg-white/30 backdrop-blur-md p-4 rounded-xl shadow-md"
+              >
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                  {stat.number}
+                </p>
+                <p className="text-sm text-gray-700 mt-1">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
 
+        {/* Right Column: 3D Model Placeholder */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]"></div>
+      </div>
+    </section>
   );
 }

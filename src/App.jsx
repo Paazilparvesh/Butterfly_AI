@@ -9,6 +9,8 @@ import SectionEight from "./components/SectionEight";
 import ButterflyModel from "./components/ButterflyModel";
 import Header from "./components/Header";
 
+// import video from "/src/assets/Pastel_Gradient_Abstract_Background_Animation.mp4"
+
 export default function App() {
   return (
     <div className="relative w-full min-h-[500vh] overflow-x-hidden">
@@ -25,6 +27,17 @@ export default function App() {
           `,
         }}
       />
+
+      {/* --- Background Video --- */}
+      {/* <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-screen object-cover z-0"
+      >
+        <source src={video} type="video/mp4" />
+      </video> */}
 
       {/* Butterfly always on top */}
       <ButterflyModel />
